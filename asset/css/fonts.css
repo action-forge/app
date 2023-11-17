@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'SharpGrostek';
+  font-weight: 400;
+  src: url('/fonts/SharpGrotesk\ Book.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SharpGrostek';
+  font-weight: 500;
+  src: url('/fonts/SharpGrotesk\ Medium.otf') format('opentype');
+}
+
