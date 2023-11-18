@@ -1,18 +1,28 @@
 <script lang="ts" setup>
 const wallet = useWalletStore()
 
+function copy () {
+  wallet.connectedAddress && useClipboard().copy(wallet.connectedAddress)
+}
+
 </script>
 
 <template>
   <button
-    class="group flex items-center border border-green-light rounded-full p-2.75 px-5"
-    @click="!wallet.isConnected ? wallet.connect() : wallet.disconnect()"
+    class=" flex items-center gap-3 border border-green-light rounded-full p-2.75 px-5 font-semibold"
+    @click="!wallet.isConnected && wallet.connect()"
   >
-    <span class="font-semibold" :class="[wallet.isConnected && 'group-hover:hidden']">
-      {{ wallet.isConnected ? wallet.connectedAddressShort : 'Connect Wallet' }}
+    <span v-if="!wallet.isConnected" class="flex items-center">
+      Connect Wallet
     </span>
-    <span class="font-semibold hidden" :class="[wallet.isConnected && 'group-hover:inline']">
-      Disconnect
+    <span v-else class="group flex items-center gap-2">
+      <span class="group-hover:hidden inline">
+        {{ wallet.connectedAddressShort }}
+      </span>
+      <span class="group-hover:inline hidden">
+        Disconnect
+      </span>
     </span>
+    <IconCopy v-if="wallet.isConnected" class="w-5 h-5 -mt-1" @click="copy" />
   </button>
 </template>
