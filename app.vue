@@ -2,7 +2,7 @@
 import '@unocss/reset/sanitize/assets.css'
 import '@unocss/reset/tailwind.css'
 import '~~/asset/css/main.css'
-import '~~/asset/css/fonts.css'
+import '~~/public/css/fonts.css'
 </script>
 
 <template>

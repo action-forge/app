@@ -4,7 +4,12 @@ defineProps({ proposal: { type: Object, default: () => ({}) } })
 const activeOutcome = ref(0)
 const activeAction = ref(0)
 const actionTypes = ['Send', 'Swap', 'Delegate']
-const inToken = ref()
+const inToken = ref({
+  symbol: 'ETH',
+  name: 'Ethereum',
+  decimals: 18,
+  address: '0x0000000000000000000'
+})
 </script>
 
 <template>

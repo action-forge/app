@@ -1,0 +1,326 @@
+:host {
+  --onboard-font-family-normal: "SharpGrostek", sans-serif;
+  --onboard-font-family-semibold: "SharpGrostek", sans-serif;
+  --onboard-font-family-light: "SharpGrostek", sans-serif;
+  --rainbow:
+    linear-gradient(
+      15deg,
+      #0035ff -69.72%,
+      #7137ff 1.21%,
+      #f048c7 46.61%,
+      #ffd535 116.5%,
+      #fff 148.76%,
+      #0035ff 214.03%
+    );
+  --blue-purple: linear-gradient(180deg, #00182b 53.8%, #081637 67.4%, #201057 91.9%, #45088a 124.5%, #6c00bf 153.8%);
+  --black: #141416;
+  --black-bg: linear-gradient(180deg, #17191b -16.54%, #101113 125%);
+  --black-riches: #09091c;
+  --white: #fdfdfd;
+  --blue-federal: #2e1a64;
+  --column: 1;
+  --lavender: #d1d5e7;
+  --gray: #777e90;
+  --border-gray: #23262f;
+  --light-gray: #f3f3f3;
+  --default-arrow: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.42603 13.6095C3.85799 13.0888 3.85799 12.2446 4.42603 11.7239L8.48842 8L4.42603 4.27614C3.85799 3.75544 3.85799 2.91122 4.42603 2.39052C4.99406 1.86982 5.91503 1.86982 6.48306 2.39052L11.574 7.05719C12.142 7.57789 12.142 8.42211 11.574 8.94281L6.48306 13.6095C5.91503 14.1302 4.99406 14.1302 4.42603 13.6095Z' fill='rgb(119, 126, 144)' /%3E%3C/svg%3E%0A");
+  --modal-z-index: 9999;
+  --color-gray-raisin: #23262f;
+  --color-gray-cultured: #f3f2f2;
+  --onboard-connect-content-width: 344px;
+  --onboard-modal-z-index: 88;
+}
+
+@media (max-width: 768px) {
+  :host {
+    --onboard-connect-content-width: 100%;
+  }
+}
+
+.mobile-header {
+  border: none !important;
+}
+
+.modal-overflow > .modal {
+  background: var(--h-border-color) !important;
+  padding: 1px !important;
+}
+
+.sidebar {
+  display: none !important;
+}
+
+.header-heading::before {
+  display: none;
+}
+
+.modal-container-mobile,
+.modal-container-mobile > div,
+.modal-container-mobile .modal-styling,
+.modal-container-mobile .modal {
+  width: 100%;
+}
+
+section.fixed > .background {
+  background: transparent !important;
+}
+
+section.fixed > .background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #0000001a;
+  backdrop-filter: blur(6.5px)
+}
+
+.close-button {
+  transition: all 0.3s;
+  background: transparent !important;
+  color: var(--gray) !important;
+}
+
+.modal-overflow.modal-styling,
+.modal-overflow.modal-styling > .modal,
+.modal-overflow.modal-styling > .modal > .container,
+.modal-overflow.modal-styling > .modal > .content {
+  border-radius: 0.375rem !important;
+  height: auto !important;
+}
+
+/* header */
+.content > .header {
+  border-radius: 0 !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  padding: 23px 16px 23px 20px !important;
+}
+
+.modal-overflow.modal-styling > .modal > .container {
+  margin: 0;
+}
+
+.close-button:hover {
+  color: currentcolor !important;
+}
+
+.wallets-container {
+  grid-template-columns: repeat(var(--column)) !important;
+  border-bottom: none !important;
+  flex-direction: column;
+}
+
+.wallets-container .notice-container {
+  display: none;
+}
+
+/* wallet buttons */
+.wallet-button-styling {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  color: currentcolor !important;
+  font-weight: 500;
+  flex-direction: row-reverse !important;
+  padding-top: 0 !important;
+  padding-right: 8px !important;
+  padding-bottom: 0 !important;
+}
+
+.wallet-button-styling,
+.connecting-container {
+  border-radius: 6px !important;
+}
+
+.wallet-button-styling .name {
+  width: 100%;
+  text-align: left;
+  text-overflow: inherit !important;
+  margin-right: auto !important;
+  max-width: initial !important;
+}
+
+.content > .button-container {
+  top: 15px !important;
+}
+
+.wallet-button-styling .status-icon {
+  right: 0 !important;
+}
+
+.button-neutral-solid {
+  border-radius: 6px !important;
+  position: relative;
+}
+
+/* connecting */
+.connecting-container {
+  margin-bottom: 16px;
+}
+
+.wallet-button-styling::before,
+.button-neutral-solid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+
+  /* padding: var(--padding); make configurable before:p-1 */
+  border-radius: inherit;
+  width: 100%;
+  transition: background-position 0.3s ease-in-out, opacity 0.2s ease-in-out;
+
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  background: var(--rainbow);
+  opacity: 0;
+  z-index: 1;
+}
+
+.wallet-button-styling::after,
+.button-neutral-solid::after {
+  content: "";
+  position: absolute;
+  inset:0;
+  padding: 1px;
+
+  /* padding: var(--padding); make configurable before:p-1 */
+  border-radius: inherit;
+  background: var(--h-border-color);
+  width: 100%;
+  transition: background-position 0.3s ease-in-out, opacity 0.2s ease-in-out;
+
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 1;
+  z-index: 1;
+}
+
+.wallet-button-styling:hover::after,
+.button-neutral-solid:hover::after,
+.wallet-button-styling.connected::after {
+  opacity: 0;
+}
+
+.wallet-button-styling:hover::before,
+.button-neutral-solid:hover::before,
+.wallet-button-styling.connected::before {
+  opacity: 1;
+}
+
+.wallet-button-styling > *,
+.button-neutral-solid > * {
+  z-index: 2 !important;
+  position: relative !important;
+}
+
+.wallet-button-styling .background-transparent {
+  border: none !important;
+}
+
+.connecting-container > div > div > div.relative:first-of-type {
+  padding: 0 !important;
+  background: var(--blue-purple) !important;
+}
+
+.onboard-button-primary {
+  border-radius: 6px !important;
+  position: relative !important;
+  top: 0;
+  bottom: 0;
+  border: none !important;
+  background: transparent !important;
+  color: currentcolor;
+}
+
+.onboard-button-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+
+  /* padding: var(--padding); make configurable before:p-1 */
+  border-radius: inherit;
+  width: 100%;
+  transition: background-position 0.3s ease-in-out, opacity 0.2s ease-in-out;
+
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  background: var(--rainbow);
+}
+
+.wallet-button-styling > div:first-child {
+  flex-flow: inherit;
+  width: 100%;
+  padding: 0 0.75rem;
+}
+
+@media (min-width: 768px) {
+  /* Modal */
+  .modal-container-mobile,
+  .modal-container-mobile > div,
+  .modal-container-mobile .modal-styling,
+  .modal-container-mobile .modal {
+    width: initial;
+  }
+
+  .content > .header,
+  .header-heading {
+    display: flex;
+    align-items: center;
+    margin: 0 !important;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .header-heading::before {
+    display: block;
+    margin-right: 10px;
+  }
+
+  .spacer {
+    padding: 0 !important;
+    display: none !important;
+  }
+
+  /* wallet body */
+
+  .wallet-button-styling .name {
+    margin-left: 0 !important;
+  }
+
+  .outer-container {
+    padding: 0 !important;
+  }
+
+  .wallets-container {
+    padding-top: 0 !important;
+    gap: 18px !important;
+  }
+
+  .wallet-button-styling > div:first-child {
+    height: 60px !important;
+    width: 60px !important;
+    flex-flow: inherit;
+  }
+
+  .wallet-button-container-inner > div:first-child {
+    height: 60px !important;
+    width: 60px !important;
+  }
+}
