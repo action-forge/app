@@ -13,8 +13,10 @@
   ],
   "vetur.validation.template": false,
   "cSpell.words": [
+    "composables",
     "Grostek",
     "pinia",
+    "viem",
     "vueuse"
   ]
 }

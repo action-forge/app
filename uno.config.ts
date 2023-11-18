@@ -5,10 +5,13 @@ export default defineConfig({
   theme: {
     colors: {
       white: {
-        nav: '#FBFDFF'
+        nav: '#FBFDFF',
+        DEFAULT: '#FFFFFF',
       },
       gray: {
         main: '#828282',
+        just: '#7E8183',
+        gravy: '#4B4D4E'
       },
       blue: {
         charcoal: '#2F4858',

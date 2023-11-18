@@ -17,6 +17,7 @@
     "@vueuse/nuxt": "^10.6.1",
     "eslint": "^8.53.0",
     "nuxt": "^3.8.1",
+    "pinia": "^2.1.7",
     "prettier": "^3.1.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^5.2.2",
@@ -25,6 +26,7 @@
   },
   "dependencies": {
     "@nuxt/content": "^2.9.0",
-    "@pinia/nuxt": "^0.5.1"
+    "@pinia/nuxt": "^0.5.1",
+    "viem": "^1.19.3"
   }
 }

@@ -3,7 +3,7 @@ defineOptions({ name: 'DefaultLayout' })
 </script>
 
 <template>
-  <div class="flex flex-col w-full h-full relative" style="background-image: url(/img/blur-bg.svg);">
+  <div id="__layout" class="flex flex-col w-full h-full relative">
     <Navbar />
     <main class="flex flex-grow w-full h-full">
       <slot />
