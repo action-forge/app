@@ -11,7 +11,9 @@ export default defineConfig({
       gray: {
         main: '#828282',
         just: '#7E8183',
-        gravy: '#4B4D4E'
+        gravy: '#4B4D4E',
+        title: '#4F4F4F',
+        platinum: '#D9D9D9'
       },
       blue: {
         charcoal: '#2F4858',

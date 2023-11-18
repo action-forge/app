@@ -16,9 +16,9 @@ function onUserInput () {
 
 }
 
-// onMounted(() => {
-//   snapshot.snapshotId = '0x6c9437b45e8a88978bca68238048fca8c670ed356fa7d4ae9ab9e7e93788c538'
-// })
+onMounted(() => {
+  snapshot.snapshotId = '0x6c9437b45e8a88978bca68238048fca8c670ed356fa7d4ae9ab9e7e93788c538'
+})
 </script>
 
 <template>

@@ -6,5 +6,6 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
   ],
 
+  vue: { defineModel: true },
   devtools: { enabled: true },
 })
