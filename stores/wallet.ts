@@ -29,8 +29,8 @@ export const useWalletStore = defineStore("wallet", () => {
   const loaders = ref({ connecting: false });
   const requiredChain = ref<Chain>(sepolia);
   const contracts = ref<{ ActionForge: Address }>({
-    // ActionForge: "0x64984643bB8df4dC31A936391BB94dD9a789Cc1a",
-    ActionForge: "0x09478e02c65f29fc59ac28a9497015bb6de00333",
+    ActionForge: "0x64984643bB8df4dC31A936391BB94dD9a789Cc1a",
+    // ActionForge: "0x09478e02c65f29fc59ac28a9497015bb6de00333",
   });
 
   // getters

@@ -126,6 +126,20 @@ async function takeAction () {
     const receipt = await wallet.publicClient.waitForTransactionReceipt({ hash: tx.hash })
     console.log('🚀 ~ file: ActionWidget.vue:92 ~ takeAction ~ receipt:', receipt)
 
+    useSnapshot().fetchHistory()
+    setTimeout(() => {
+      useSnapshot().fetchHistory()
+    }, 1000)
+    setTimeout(() => {
+      useSnapshot().fetchHistory()
+    }, 3000)
+    setTimeout(() => {
+      useSnapshot().fetchHistory()
+    }, 5000)
+    setTimeout(() => {
+      useSnapshot().fetchHistory()
+    }, 7000)
+
   } catch (error) {
     console.log('🚀 ~ file: ActionWidget.vue:80 ~ takeAction ~ error', error)
   }

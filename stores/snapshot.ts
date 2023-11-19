@@ -150,5 +150,5 @@ export const useSnapshot = defineStore("snapshot", () => {
   watch(snapshotId, fetchContent, { immediate: true });
   const wallet = useWalletStore();
   watch(() => wallet.connectedAddress, fetchHistory, { immediate: true });
-  return { snapshotId, proposal, space, history, showAction };
+  return { snapshotId, proposal, space, history, showAction, fetchHistory };
 });
