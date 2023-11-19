@@ -10,7 +10,7 @@ function getProposalLink (history: any) {
 
 <template>
   <div class="w-full border border-blue-carolina rounded-xl flex flex-col bg-white-nav p4">
-    <div v-if="snapshot.history.length" class="w-full text-xs">
+    <div v-if="snapshot.history.length" class="w-full text-xs flex flex-col gap-3">
       <div v-for="history in snapshot.history" :key="history.title" class="flex flex-col border border-blue-carolina rounded p-2">
         <div class="flex items-center">
           <NuxtLink class="font-medium" :to="getProposalLink(history)" :external="true" target="_blank">
