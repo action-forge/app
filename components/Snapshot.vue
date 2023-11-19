@@ -20,6 +20,7 @@ watch(() => snapshot.proposal, parseContent)
 onMounted(parseContent)
 
 function getAvatar (avatar: string) {
+  if (!avatar) return '/img/avatar.svg'
   return avatar.replace('ipfs://', 'https://ipfs.io/ipfs/')
 }
 
@@ -69,7 +70,7 @@ function formatDate (date: number) {
       </div>
       <!-- title -->
       <div class="grow flex items-center justify-center gap-4 w-full whitespace-normal">
-        <span class="w-full max-w-80% overflow-ellipsis">
+        <span class="max-w-80% overflow-ellipsis">
           {{ snapshot.proposal.title }}
         </span>
       </div>
@@ -106,7 +107,7 @@ function formatDate (date: number) {
             {{ snapshot.proposal.state }}
           </span>
           <div class="h-3 w-1 mx-2 border-r-2 border-blue-carolina" />
-          Starts: <strong>{{ formatDate(snapshot.proposal.start) }}</strong> Ends: <strong>{{ formatDate(snapshot.proposal.end) }}</strong>
+          Starts: <strong class="mx-1">{{ formatDate(snapshot.proposal.start) }}</strong> Ends: <strong class="mx-1">{{ formatDate(snapshot.proposal.end) }}</strong>
         </div>
         <div class="text-2.75 pt-2 text-gray-gravy">
           <ContentRendererMarkdown v-if="content" :value="content" class="max-h-30 overflow-y-scroll" />
@@ -117,7 +118,7 @@ function formatDate (date: number) {
       </div>
 
       <!-- left side -->
-      <div>
+      <div class="ml-auto">
         <div class="flex flex-col border border-blue-carolina bg-green-honey rounded-md whitespace-nowrap">
           <!-- header -->
           <div class="flex items-center justify-center text-xs font-medium p-2 border-b border-blue-carolina rounded-t-md uppercase">

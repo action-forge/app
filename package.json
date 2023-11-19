@@ -25,10 +25,13 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@ethersproject/bignumber": "^5.7.0",
+    "@hubble-exchange/utils": "^1.4.0",
     "@nuxt/content": "^2.9.0",
     "@pinia/nuxt": "^0.5.1",
     "@web3-onboard/core": "^2.21.2",
     "@web3-onboard/injected-wallets": "^2.10.9",
+    "ethers": "^6.8.1",
     "viem": "^1.19.3"
   }
 }

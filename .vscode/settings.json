@@ -16,7 +16,11 @@
     "composables",
     "Grostek",
     "pinia",
+    "sepolia",
     "viem",
     "vueuse"
-  ]
+  ],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

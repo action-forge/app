@@ -3,25 +3,19 @@ defineProps({ dropClass: { type: String, default: '' } })
 
 const target = ref()
 const show = ref(false)
-const tokenList = ref([
-  {
-    symbol: 'ETH',
-    name: 'Ethereum',
-    decimals: 18,
-    address: '0x0000000000000000000'
-  },
-  {
-    symbol: 'BTC',
-    name: 'Bitcoin',
-    decimals: 18,
-    address: '0x0000000000000000000'
-  }
-])
+
+const token = useTokenStore()
+const inputTokenAddress = ref('')
+useErc20Details(inputTokenAddress, (details) => {
+  token.addUserToken(details)
+  active.value = details
+})
+
 const active = defineModel({ default: {
-  symbol: 'ETH',
-  name: 'Ethereum',
+  address: '0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14',
+  name: 'weth',
   decimals: 18,
-  address: '0x0000000000000000000'
+  symbol: 'weth'
 } })
 
 onClickOutside(target, () => {
@@ -39,7 +33,8 @@ onClickOutside(target, () => {
       aria-haspopup="true"
       @click="show = !show"
     >
-      {{ active.symbol }}
+      <div class="w-4 h-4 rounded-full" style="background: linear-gradient(45deg, #E64242 -0.09%, #E69442 49.91%, #E5E642 99.91%)" />
+      <span class="uppercase">{{ active.symbol }}</span>
       <IconArrowBack class="ml-auto w-4 h-4" />
     </button>
 
@@ -53,11 +48,15 @@ onClickOutside(target, () => {
       tabindex="-1"
     >
       <div class="py-1" role="none">
-        <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+        <div class="px-4 py-2">
+          <div class="border-b border-blue-carolina">
+            <input v-model="inputTokenAddress" class="unstyled-input h-8" placeholder="erc20 token address">
+          </div>
+        </div>
         <button
-          v-for="item in tokenList"
+          v-for="item in token.all"
           :key="item.symbol"
-          class="w-full text-left capitalize block px-4 py-2 hover:bg-green-honey"
+          class="w-full text-left uppercase block px-4 py-2 hover:bg-green-honey"
           role="menuitem"
           tabindex="-1"
           @click="(active = item) && (show = false)"
