@@ -117,7 +117,7 @@ export function useERC20Allowance(
 ) {
   const wallet = useWalletStore()
   const { connectedAddress } = storeToRefs(wallet)
-  const allowance = ref(0n)
+  const allowance = ref(BigInt(0))
   const isFetchingAllowance = ref(false)
   const isApproving = ref(false)
   const isEnoughAllowance = computed(() => allowance.value >= BigInt(toValue(requiredAllowance)))
@@ -127,7 +127,7 @@ export function useERC20Allowance(
     console.debug('fetching allowance', toValue(tokenAddress), toValue(spenderAddress), toValue(requiredAllowance))
 
     if (wallet.connectedAddress === null || toValue(tokenAddress) === 'native' || toValue(spenderAddress) === null) {
-      allowance.value = 0n
+      allowance.value = BigInt(0)
       return
     }
     isFetchingAllowance.value = true
@@ -141,7 +141,7 @@ export function useERC20Allowance(
     }
     catch (error) {
       if (resetOnError)
-        allowance.value = 0n
+        allowance.value = BigInt(0)
       console.debug('fetching allowance error:', error)
     }
     finally {
